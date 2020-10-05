@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lib/*": ["./src/*"],
+      "@constraint/*": ["./src/constraint/*"],
+      "@util/*": ["./src/util/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}

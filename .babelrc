@@ -1,0 +1,16 @@
+{
+  "presets": ["@babel/env"],
+  "plugins": [
+    "@babel/transform-runtime",
+    [
+      "babel-plugin-module-resolver",
+      {
+        "alias": {
+          "@lib": "./src",
+          "@constraint": "./src/constraint",
+          "@util": "./src/util"
+        }
+      }
+    ]
+  ]
+}
