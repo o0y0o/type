@@ -2,7 +2,7 @@ import t from '@lib'
 
 describe('type.time', () => {
   it('pass with undefined value', () => {
-    const actual = t.time.validate(void 0)
+    const actual = t.time.validate(undefined)
     expect(actual).toEqual({ valid: true })
   })
 

@@ -7,7 +7,7 @@ describe('type.string.required', () => {
   })
 
   it('fail with undefined value', () => {
-    const actual = t.string.required.validate(void 0)
+    const actual = t.string.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
       errors: [{ expected: 'string.required', actual: 'undefined' }]

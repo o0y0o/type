@@ -2,7 +2,7 @@ import t from '@lib'
 
 describe('type.nil', () => {
   it('pass with undefined value', () => {
-    const actual = t.nil.validate(void 0)
+    const actual = t.nil.validate(undefined)
     expect(actual).toEqual({ valid: true })
   })
 

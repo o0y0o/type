@@ -2,7 +2,7 @@ import t from '@lib'
 
 describe('type.decimal', () => {
   it('pass with undefined value', () => {
-    const actual = t.decimal.validate(void 0)
+    const actual = t.decimal.validate(undefined)
     expect(actual).toEqual({ valid: true })
   })
 

@@ -7,7 +7,7 @@ describe('type.decimal.required', () => {
   })
 
   it('fail with undefined value', () => {
-    const actual = t.decimal.required.validate(void 0)
+    const actual = t.decimal.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
       errors: [{ expected: 'decimal.required', actual: 'undefined' }]

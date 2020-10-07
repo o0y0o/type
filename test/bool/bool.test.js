@@ -2,7 +2,7 @@ import t from '@lib'
 
 describe('type.bool', () => {
   it('pass with undefined value', () => {
-    const actual = t.bool.validate(void 0)
+    const actual = t.bool.validate(undefined)
     expect(actual).toEqual({ valid: true })
   })
 
