@@ -6,7 +6,7 @@ describe('type.decimal.neq', () => {
     expect(actual).toEqual({ valid: true })
   })
 
-  it("fail if decimal is equal to specific value", () => {
+  it('fail if decimal is equal to specific value', () => {
     const actual = t.decimal.neq('-1.989').validate('-1.981')
     expect(actual).toEqual({
       valid: false,

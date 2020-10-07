@@ -1,6 +1,6 @@
 import t from '@lib'
 
-describe('type.number.eq', () => {
+describe('type.number.neq', () => {
   it("pass if number isn't equal to specific value", () => {
     const actual = t.number.neq(-1).validate(0)
     expect(actual).toEqual({ valid: true })
