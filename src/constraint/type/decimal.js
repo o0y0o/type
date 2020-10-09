@@ -1,4 +1,4 @@
-import { isString, mapValues, overEvery } from 'lodash'
+import { isString, overEvery } from 'lodash'
 import constraint from '@util/createConstraint'
 
 const regex = /^([+-])?(\d+)(?:\.(\d+))?$/
@@ -14,6 +14,7 @@ const compareInt = (int1, int2) => {
 }
 
 const compareDec = (dec1, dec2, dp) => {
+  if (dp == null) dp = Math.max(dec1.length, dec2.length)
   const fix = dec => dec.substring(0, dp).padEnd(dp, '0')
   return compareStr(fix(dec1), fix(dec2))
 }
@@ -37,8 +38,21 @@ const comparisons = {
   lte: (expected, dp) => actual => compare(actual, expected, dp) <= 0
 }
 
-const decCmp = mapValues(comparisons, (check, name) => (expected, dp = 2) =>
-  constraint(`${name}${dp}(${expected})`, check(expected, dp))
-)
+const createComparisonConstraints = dp =>
+  Object.entries(comparisons).reduce((constraints, [key, check]) => {
+    const name = `${key}${dp ?? ''}`
+    constraints[name] = expected =>
+      constraint(`${name}(${expected})`, check(expected, dp))
+    return constraints
+  }, {})
 
-export default constraint('decimal', isDecimal, decCmp)
+const decCmp = createComparisonConstraints()
+
+const decConstraint = constraint('decimal', isDecimal, decCmp)
+
+decConstraint.extendComparisonsWithDp = dp =>
+  decConstraint[`eq${dp ?? ''}`]
+    ? decConstraint
+    : decConstraint.extend(createComparisonConstraints(dp))
+
+export default decConstraint
