@@ -8,6 +8,7 @@ import string from '@constraint/type/string'
 import time from '@lib/constraint/type/time'
 import eq from '@constraint/value/eq'
 import oneOf from '@constraint/value/oneOf'
+import valueOf from '@constraint/value/valueOf'
 
 export default {
   array,
@@ -19,5 +20,6 @@ export default {
   string,
   time,
   eq,
-  oneOf
+  oneOf,
+  valueOf
 }
