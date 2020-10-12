@@ -7,7 +7,7 @@ const expected = {
   array: [{ object: { number: 1 } }]
 }
 
-const expectedString = `{
+const expectedString = `object.match({
   "number": 1,
   "string": "1",
   "object": {
@@ -20,7 +20,7 @@ const expectedString = `{
       }
     }
   ]
-}`
+})`
 
 const actualGood = {
   number: 1,
@@ -60,9 +60,7 @@ describe('type.object.match', () => {
     const actual = t.object.match(expected).validate(actualBad)
     expect(actual).toEqual({
       valid: false,
-      errors: [
-        { expected: `object.match(${expectedString})`, actual: actualBadString }
-      ]
+      errors: [{ expected: expectedString, actual: actualBadString }]
     })
   })
 })

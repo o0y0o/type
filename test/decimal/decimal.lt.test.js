@@ -25,7 +25,6 @@ describe('type.decimal.lt', () => {
   })
 })
 
-
 describe('type.decimal.lt2', () => {
   it('pass if decimal is less than specific value', () => {
     const actual = t.decimal.lt2('-1.989').validate('-1.999')
