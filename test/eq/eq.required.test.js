@@ -1,7 +1,7 @@
 import t from '@lib'
 
 describe('type.eq.required', () => {
-  it('pass if any are equality', () => {
+  it('pass with any equality', () => {
     const actual = t.eq(1).required.validate(1)
     expect(actual).toEqual({ valid: true })
   })
