@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.time.required', () => {
   it('pass with any time', () => {
     const actual = t.time.required.validate(1)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with undefined value', () => {

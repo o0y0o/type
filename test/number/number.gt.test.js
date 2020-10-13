@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.number.gt', () => {
   it('pass if number is greater than specific value', () => {
     const actual = t.number.gt(-1).validate(1)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail if number is equal to specific value', () => {

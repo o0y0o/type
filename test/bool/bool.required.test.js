@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.bool.required', () => {
   it('pass with any bool', () => {
     const actual = t.bool.required.validate(true)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with undefined value', () => {

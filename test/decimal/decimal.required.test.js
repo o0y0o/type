@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.decimal.required', () => {
   it('pass with any decimal', () => {
     const actual = t.decimal.required.validate('1.98')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with undefined value', () => {

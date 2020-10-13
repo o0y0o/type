@@ -1,4 +1,5 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 const expected = {
   number: 1,
@@ -53,7 +54,7 @@ const actualBadString = `{
 describe('type.object.match', () => {
   it('pass if object matches specific object', () => {
     const actual = t.object.match(expected).validate(actualGood)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it("pass if object doesn't match specific object", () => {

@@ -1,19 +1,20 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.decimal', () => {
   it('pass with undefined value', () => {
     const actual = t.decimal.validate(undefined)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('pass with null value', () => {
     const actual = t.decimal.validate(null)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('pass with decimal string', () => {
     const actual = t.decimal.validate('-0.1234')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with non-decimal string', () => {
@@ -34,6 +35,6 @@ describe('type.decimal', () => {
 
   it('support extensions', () => {
     const actual = t.decimal.gte('1.01234', 4).required.validate('1.01235')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 })

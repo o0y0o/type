@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.string.notEmpty', () => {
   it('pass with non-empty string', () => {
     const actual = t.string.notEmpty.validate('foo')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with empty string', () => {

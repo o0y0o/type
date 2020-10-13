@@ -1,4 +1,5 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 const expected = {
   number: 1,
@@ -54,7 +55,7 @@ const actualBadString = `{
 describe('type.object.eq', () => {
   it('pass if object is deeply equal to specific object', () => {
     const actual = t.object.eq(expected).validate(actualGood)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it("pass if object isn't deeply equal to specific object", () => {

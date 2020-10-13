@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.string.required', () => {
   it('pass with any string', () => {
     const actual = t.string.required.validate('foo')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with undefined value', () => {

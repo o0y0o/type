@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.oneOf.required', () => {
   it('pass with any included value', () => {
     const actual = t.oneOf([1, 2]).required.validate(1)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with undefined value', () => {

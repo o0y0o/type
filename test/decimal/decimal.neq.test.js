@@ -1,11 +1,12 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 beforeAll(() => t.decimal.extendComparisonsWithDp(2))
 
 describe('type.decimal.neq', () => {
   it("pass if decimal isn't equal to specific value", () => {
     const actual = t.decimal.neq('-1.989').validate('-1.981')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail if decimal is equal to specific value', () => {
@@ -20,7 +21,7 @@ describe('type.decimal.neq', () => {
 describe('type.decimal.neq2', () => {
   it("pass if decimal isn't equal to specific value", () => {
     const actual = t.decimal.neq2('-1.989').validate('-1.999')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail if decimal is equal to specific value', () => {

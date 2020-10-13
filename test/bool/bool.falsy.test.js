@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.bool.falsy', () => {
   it('pass if bool is falsy', () => {
     const actual = t.bool.falsy.validate(false)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it("fail if bool isn't falsy", () => {

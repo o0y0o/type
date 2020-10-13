@@ -1,19 +1,20 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.object', () => {
   it('pass with undefined value', () => {
     const actual = t.object.validate(undefined)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('pass with null value', () => {
     const actual = t.object.validate(null)
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('pass with any object', () => {
     const actual = t.object.validate({})
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with array', () => {
@@ -34,6 +35,6 @@ describe('type.object', () => {
 
   it('support extensions', () => {
     const actual = t.object.eq({ a: 1 }).required.validate({ a: 1 })
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 })

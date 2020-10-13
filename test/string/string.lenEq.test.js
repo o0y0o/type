@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.string.lenEq', () => {
   it('pass if string has specific length', () => {
     const actual = t.string.lenEq(3).validate('foo')
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it("fail if string doesn't have specific length", () => {

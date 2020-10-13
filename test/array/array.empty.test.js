@@ -1,9 +1,10 @@
 import t from '@lib'
+import { validResult } from '../model'
 
 describe('type.array.empty', () => {
   it('pass with empty array', () => {
     const actual = t.array.empty.validate([])
-    expect(actual).toEqual({ valid: true })
+    expect(actual).toEqual(validResult)
   })
 
   it('fail with non-empty array', () => {

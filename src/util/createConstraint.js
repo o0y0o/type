@@ -1,10 +1,11 @@
-import { isFunction, isNil, isObject, negate } from 'lodash'
+import { isArray, isBoolean, isFunction, isNil, isObject, negate } from 'lodash'
 import { stringify } from '@util/message'
 
 function create(name, check, nilable = true, extensions = {}) {
   if (isObject(nilable)) return create(name, check, undefined, nilable)
 
-  const constraint = { name, check, nilable, validate, extend }
+  const toString = () => name
+  const constraint = { name, check, nilable, validate, extend, toString }
   const bulitinKeys = Object.keys(constraint)
   const mixins = {}
 
@@ -13,9 +14,17 @@ function create(name, check, nilable = true, extensions = {}) {
   return constraint
 
   function validate(actual) {
-    if ((nilable && isNil(actual)) || check(actual)) return { valid: true }
-    const error = { expected: name, actual: stringify(actual) }
-    return { valid: false, errors: [error] }
+    const validResult = { valid: true, errors: [] }
+    if (nilable && isNil(actual)) return validResult
+
+    const checkResult = check(actual)
+    if (isBoolean(checkResult) && checkResult) return validResult
+    if (!isNil(checkResult.valid)) return checkResult
+
+    const errors = isArray(checkResult)
+      ? checkResult
+      : [{ expected: name, actual: stringify(actual) }]
+    return errors.length ? { valid: false, errors } : validResult
   }
 
   function extend(key, ext) {
