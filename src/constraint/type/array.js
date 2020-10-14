@@ -1,21 +1,35 @@
 import { isArray } from 'lodash'
 import lenCmp from '@constraint/shared/lenCmp'
 import constraint from '@util/createConstraint'
-import { joinPropPath } from '@util/message'
+import { stringify, joinPropPath } from '@util/message'
 
-const of = expected =>
-  constraint(`of(${expected})`, actual => {
-    if (isArray(expected)) {
-      const result = lenCmp(expected.length).validate(actual)
-      if (!result.valid) return result
+const toItemError = index => error => ({
+  ...error,
+  name: joinPropPath(`[${index}]`, error.name)
+})
+
+const is = expected =>
+  constraint(`is(${expected})`, actual => {
+    const errors = []
+    for (let i = 0; i < expected.length; i++) {
+      const result = expected[i].validate(actual[i])
+      errors.push(...result.errors.map(toItemError(i)))
     }
-    return actual.flatMap((actualItem, index) => {
-      const expectedItem = isArray(expected) ? expected[index] : expected
-      return expectedItem.validate(actualItem).errors.map(error => ({
-        ...error,
-        name: joinPropPath(`[${index}]`, error.name)
-      }))
-    })
+    for (let i = expected.length; i < actual.length; i++) {
+      errors.push({
+        name: `[${i}]`,
+        expected: 'undeclared',
+        actual: stringify(actual[i])
+      })
+    }
+    return errors
   })
 
-export default constraint('array', isArray, { of, ...lenCmp })
+const of = expected =>
+  constraint(`of(${expected})`, actual =>
+    actual.flatMap((actualItem, i) =>
+      expected.validate(actualItem).errors.map(toItemError(i))
+    )
+  )
+
+export default constraint('array', isArray, { is, of, ...lenCmp })
