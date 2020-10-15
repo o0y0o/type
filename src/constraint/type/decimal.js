@@ -1,5 +1,5 @@
 import { isString, overEvery } from 'lodash'
-import constraint from '@util/createConstraint'
+import constraint from '@lib/util/constraint'
 
 const regex = /^([+-])?(\d+)(?:\.(\d+))?$/
 

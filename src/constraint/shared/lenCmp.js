@@ -1,5 +1,5 @@
 import { isEmpty, negate } from 'lodash'
-import constraint from '@util/createConstraint'
+import constraint from '@lib/util/constraint'
 
 export default {
   lenEq: len => constraint(`lenEq(${len})`, actual => actual?.length === len),

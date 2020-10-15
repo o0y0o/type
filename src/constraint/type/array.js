@@ -1,7 +1,7 @@
 import { isArray } from 'lodash'
 import lenCmp from '@constraint/shared/lenCmp'
-import constraint from '@util/createConstraint'
-import { stringify, joinPropPath } from '@util/message'
+import constraint from '@lib/util/constraint'
+import { stringify, joinPropPath } from '@lib/util/helper'
 
 const toItemError = index => error => ({
   ...error,

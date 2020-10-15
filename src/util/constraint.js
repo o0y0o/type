@@ -1,5 +1,5 @@
 import { isArray, isBoolean, isFunction, isNil, isObject, negate } from 'lodash'
-import { stringify } from '@util/message'
+import { stringify } from '@lib/util/helper'
 
 function create(name, check, nilable = true, extensions = {}) {
   if (isObject(nilable)) return create(name, check, undefined, nilable)

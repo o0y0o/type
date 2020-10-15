@@ -1,5 +1,5 @@
 import { isNumber, mapValues } from 'lodash'
-import constraint from '@util/createConstraint'
+import constraint from '@lib/util/constraint'
 
 const comparisons = {
   eq: expected => actual => actual === expected,

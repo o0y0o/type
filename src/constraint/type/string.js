@@ -1,6 +1,6 @@
 import { isString } from 'lodash'
 import lenCmp from '@constraint/shared/lenCmp'
-import constraint from '@util/createConstraint'
+import constraint from '@lib/util/constraint'
 
 export default constraint('string', isString, {
   ...lenCmp,
