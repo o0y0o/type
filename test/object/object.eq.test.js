@@ -2,51 +2,51 @@ import t from '@lib'
 import { validResult } from '../model'
 
 const expected = {
-  number: 1,
-  string: '1',
-  object: { number: 1 },
-  array: [{ object: { number: 1 } }]
+  numb: 1,
+  str: '1',
+  obj: { num: 1 },
+  arr: [{ obj: { num: 1 } }]
 }
 
 const expectedString = `object.eq({
-  "number": 1,
-  "string": "1",
-  "object": {
-    "number": 1
+  "num": 1,
+  "str": "1",
+  "obj": {
+    "num": 1
   },
-  "array": [
+  "arr": [
     {
-      "object": {
-        "number": 1
+      "obj": {
+        "num": 1
       }
     }
   ]
 })`
 
 const actualGood = {
-  number: 1,
-  string: '1',
-  object: { number: 1 },
-  array: [{ object: { number: 1 } }]
+  num: 1,
+  str: '1',
+  obj: { num: 1 },
+  arr: [{ obj: { num: 1 } }]
 }
 
 const actualBad = {
-  number: 1,
-  string: '1',
-  object: { number: 1 },
-  array: [{ object: { number: 2 } }]
+  num: 1,
+  str: '1',
+  obj: { num: 1 },
+  arr: [{ obj: { num: 2 } }]
 }
 
 const actualBadString = `{
-  "number": 1,
-  "string": "1",
-  "object": {
-    "number": 1
+  "num": 1,
+  "str": "1",
+  "obj": {
+    "num": 1
   },
   "array": [
     {
-      "object": {
-        "number": 2
+      "obj": {
+        "num": 2
       }
     }
   ]

@@ -1,25 +1,25 @@
 import t from '@lib'
 import { validResult } from '../model'
 
-const expected = t.object.match({ a: 1, b: '1' }).required
+const expected = t.object.match({ num: 1, str: '1' }).required
 
 const expected1String = `object.match({
-  "a": 1,
-  "b": "1"
+  "num": 1,
+  "str": "1"
 })`
 
 const expected2String = `${expected1String}.required`
 
 const actualGood = [
-  { a: 1, b: '1', c: true },
-  { a: 1, b: '1', d: true }
+  { num: 1, str: '1', bool: true },
+  { num: 1, str: '1', bool: true }
 ]
 
-const actualBad1 = { a: 1, b: 1 }
+const actualBad1 = { num: 1, str: 1 }
 
 const actualBadString1 = `{
-  "a": 1,
-  "b": 1
+  "num": 1,
+  "str": 1
 }`
 
 describe('type.array.of', () => {

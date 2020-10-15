@@ -2,50 +2,50 @@ import t from '@lib'
 import { validResult } from '../model'
 
 const expected = {
-  number: 1,
-  string: '1',
-  object: { number: 1 },
-  array: [{ object: { number: 1 } }]
+  num: 1,
+  str: '1',
+  obj: { num: 1 },
+  arr: [{ obj: { num: 1 } }]
 }
 
 const expectedString = `object.match({
-  "number": 1,
-  "string": "1",
-  "object": {
-    "number": 1
+  "num": 1,
+  "str": "1",
+  "obj": {
+    "num": 1
   },
-  "array": [
+  "arr": [
     {
-      "object": {
-        "number": 1
+      "obj": {
+        "num": 1
       }
     }
   ]
 })`
 
 const actualGood = {
-  number: 1,
-  string: '1',
-  object: { number: 1, extra: 1 },
-  array: [{ object: { number: 1, extra: 1 }, extra: 1 }, { extra: 1 }],
+  num: 1,
+  str: '1',
+  obj: { num: 1, extra: 1 },
+  arr: [{ obj: { num: 1, extra: 1 }, extra: 1 }, { extra: 1 }],
   extra: 1
 }
 
 const actualBad = {
-  string: '1',
-  object: { number: 1 },
-  array: [{ object: { number: 1 } }]
+  str: '1',
+  obj: { num: 1 },
+  arr: [{ obj: { num: 1 } }]
 }
 
 const actualBadString = `{
-  "string": "1",
-  "object": {
-    "number": 1
+  "str": "1",
+  "obj": {
+    "num": 1
   },
-  "array": [
+  "arr": [
     {
-      "object": {
-        "number": 1
+      "obj": {
+        "num": 1
       }
     }
   ]

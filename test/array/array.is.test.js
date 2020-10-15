@@ -2,29 +2,29 @@ import t from '@lib'
 import { validResult } from '../model'
 
 const expected = [
-  t.object.match({ a: 1, b: '1' }).required,
-  t.object.match({ a: 2, b: '2' }).required
+  t.object.match({ num: 1, str: '1' }).required,
+  t.object.match({ num: 2, str: '2' }).required
 ]
 
 const expected1String = `object.match({
-  "a": 1,
-  "b": "1"
+  "num": 1,
+  "str": "1"
 })`
 
 const expected2String = `object.match({
-  "a": 2,
-  "b": "2"
+  "num": 2,
+  "str": "2"
 }).required`
 
-const actualGood1 = { a: 1, b: '1', c: true }
+const actualGood1 = { num: 1, str: '1', bool: true }
 
-const actualGood2 = { a: 2, b: '2', d: true }
+const actualGood2 = { num: 2, str: '2', bool: true }
 
-const actualBad1 = { a: 1, b: 1 }
+const actualBad1 = { num: 1, str: 1 }
 
 const actualBadString1 = `{
-  "a": 1,
-  "b": 1
+  "num": 1,
+  "str": 1
 }`
 
 describe('type.array.is', () => {
