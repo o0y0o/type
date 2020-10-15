@@ -11,5 +11,10 @@ const stringifyArray = value => stringifyObj(value, 0).replace(/,/g, ', ')
 export const stringify = (value, indent) =>
   isArray(value) ? stringifyArray(value) : stringifyObj(value, indent)
 
-export const joinPropPath = (path1, path2) =>
+const joinPath = (path1, path2) =>
   [path1, path2].filter(Boolean).join('.').replace(/\.\[/g, '[')
+
+export const prefixErrorName = name => error => ({
+  ...error,
+  name: joinPath(name, error.name)
+})

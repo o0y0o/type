@@ -1,19 +1,14 @@
 import { isArray } from 'lodash'
 import lenCmp from '@constraint/shared/lenCmp'
 import constraint from '@lib/util/constraint'
-import { stringify, joinPropPath } from '@lib/util/helper'
-
-const toItemError = index => error => ({
-  ...error,
-  name: joinPropPath(`[${index}]`, error.name)
-})
+import { stringify, prefixErrorName } from '@lib/util/helper'
 
 const is = expected =>
   constraint(`is(${expected})`, actual => {
     const errors = []
     for (let i = 0; i < expected.length; i++) {
       const result = expected[i].validate(actual[i])
-      errors.push(...result.errors.map(toItemError(i)))
+      errors.push(...result.errors.map(prefixErrorName(`[${i}]`)))
     }
     for (let i = expected.length; i < actual.length; i++) {
       errors.push({
@@ -28,7 +23,7 @@ const is = expected =>
 const of = expected =>
   constraint(`of(${expected})`, actual =>
     actual.flatMap((actualItem, i) =>
-      expected.validate(actualItem).errors.map(toItemError(i))
+      expected.validate(actualItem).errors.map(prefixErrorName(`[${i}]`))
     )
   )
 
