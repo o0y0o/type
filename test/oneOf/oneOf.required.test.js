@@ -11,7 +11,7 @@ describe('type.oneOf.required', () => {
     const actual = t.oneOf([1, 2]).required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'oneOf([1, 2]).required', actual: 'undefined' }]
+      errors: [{ expected: 'required', actual: 'undefined' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.oneOf.required', () => {
     const actual = t.oneOf([1, 2]).required.validate(null)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'oneOf([1, 2]).required', actual: 'null' }]
+      errors: [{ expected: 'required', actual: 'null' }]
     })
   })
 })

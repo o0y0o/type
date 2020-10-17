@@ -17,7 +17,7 @@ describe('type.time.eq', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.eq(2020-01-01T00:00:00.000Z)',
+          expected: 'eq(2020-01-01T00:00:00.000Z)',
           actual: '"2020-01-01T00:00:00.001Z"'
         }
       ]

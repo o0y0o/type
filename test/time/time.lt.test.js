@@ -17,7 +17,7 @@ describe('type.time.lt', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.lt(2020-01-01T00:00:00.000Z)',
+          expected: 'lt(2020-01-01T00:00:00.000Z)',
           actual: '"2020-01-01T00:00:00.000Z"'
         }
       ]
@@ -32,7 +32,7 @@ describe('type.time.lt', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.lt(2020-01-01T00:00:00.000+08:00)',
+          expected: 'lt(2020-01-01T00:00:00.000+08:00)',
           actual: '"2020-01-01T00:00:00.000Z"'
         }
       ]

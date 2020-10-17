@@ -18,7 +18,7 @@ describe('type.decimal.gte', () => {
     const actual = t.decimal.gte('-1.98').validate('-1.981')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gte(-1.98)', actual: '"-1.981"' }]
+      errors: [{ expected: 'gte(-1.98)', actual: '"-1.981"' }]
     })
   })
 })
@@ -38,7 +38,7 @@ describe('type.decimal.gte2', () => {
     const actual = t.decimal.gte2('-1.989').validate('-1.999')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gte2(-1.989)', actual: '"-1.999"' }]
+      errors: [{ expected: 'gte2(-1.989)', actual: '"-1.999"' }]
     })
   })
 })

@@ -8,7 +8,7 @@ const expected = {
   arr: [{ obj: { num: 1 } }]
 }
 
-const expectedMsg = `object.eq({
+const expectedMsg = `eq({
   "num": 1,
   "str": "1",
   "obj": {

@@ -16,7 +16,7 @@ describe('type.number.lte', () => {
     const actual = t.number.lte(-1).validate(0)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.lte(-1)', actual: '0' }]
+      errors: [{ expected: 'lte(-1)', actual: '0' }]
     })
   })
 })

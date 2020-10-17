@@ -11,7 +11,7 @@ describe('type.string.notEmpty', () => {
     const actual = t.string.notEmpty.validate('')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.notEmpty', actual: '""' }]
+      errors: [{ expected: 'notEmpty', actual: '""' }]
     })
   })
 })

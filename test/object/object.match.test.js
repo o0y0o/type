@@ -8,7 +8,7 @@ const expected = {
   arr: [{ obj: { num: 1 } }]
 }
 
-const expectedMsg = `object.match({
+const expectedMsg = `match({
   "num": 1,
   "str": "1",
   "obj": {

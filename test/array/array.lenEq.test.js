@@ -11,7 +11,7 @@ describe('type.array.lenEq', () => {
     const actual = t.array.lenEq(2).validate([1, 2, 3])
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'array.lenEq(2)', actual: '[1, 2, 3]' }]
+      errors: [{ expected: 'lenEq(2)', actual: '[1, 2, 3]' }]
     })
   })
 })

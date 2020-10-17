@@ -11,7 +11,7 @@ describe('type.array.notEmpty', () => {
     const actual = t.array.notEmpty.validate([])
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'array.notEmpty', actual: '[]' }]
+      errors: [{ expected: 'notEmpty', actual: '[]' }]
     })
   })
 })

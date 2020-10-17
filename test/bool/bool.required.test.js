@@ -11,7 +11,7 @@ describe('type.bool.required', () => {
     const actual = t.bool.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'bool.required', actual: 'undefined' }]
+      errors: [{ expected: 'required', actual: 'undefined' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.bool.required', () => {
     const actual = t.bool.required.validate(null)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'bool.required', actual: 'null' }]
+      errors: [{ expected: 'required', actual: 'null' }]
     })
   })
 })

@@ -11,7 +11,7 @@ describe('type.string.match', () => {
     const actual = t.string.match(/^\d+$/).validate('foo')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.match(/^\\d+$/)', actual: '"foo"' }]
+      errors: [{ expected: 'match(/^\\d+$/)', actual: '"foo"' }]
     })
   })
 })

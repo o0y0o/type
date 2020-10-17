@@ -13,7 +13,7 @@ describe('type.decimal.gt', () => {
     const actual = t.decimal.gt('-1.989').validate('-1.989')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gt(-1.989)', actual: '"-1.989"' }]
+      errors: [{ expected: 'gt(-1.989)', actual: '"-1.989"' }]
     })
   })
 
@@ -21,7 +21,7 @@ describe('type.decimal.gt', () => {
     const actual = t.decimal.gt('-1.98').validate('-1.981')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gt(-1.98)', actual: '"-1.981"' }]
+      errors: [{ expected: 'gt(-1.98)', actual: '"-1.981"' }]
     })
   })
 })
@@ -36,7 +36,7 @@ describe('type.decimal.gt2', () => {
     const actual = t.decimal.gt2('-1.989').validate('-1.98')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gt2(-1.989)', actual: '"-1.98"' }]
+      errors: [{ expected: 'gt2(-1.989)', actual: '"-1.98"' }]
     })
   })
 
@@ -44,7 +44,7 @@ describe('type.decimal.gt2', () => {
     const actual = t.decimal.gt2('-1.989').validate('-1.999')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.gt2(-1.989)', actual: '"-1.999"' }]
+      errors: [{ expected: 'gt2(-1.989)', actual: '"-1.999"' }]
     })
   })
 })

@@ -11,7 +11,7 @@ describe('type.number.gt', () => {
     const actual = t.number.gt(-1).validate(-1)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.gt(-1)', actual: '-1' }]
+      errors: [{ expected: 'gt(-1)', actual: '-1' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.number.gt', () => {
     const actual = t.number.gt(-1).validate(-2)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.gt(-1)', actual: '-2' }]
+      errors: [{ expected: 'gt(-1)', actual: '-2' }]
     })
   })
 })

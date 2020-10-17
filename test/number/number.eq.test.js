@@ -11,7 +11,7 @@ describe('type.number.eq', () => {
     const actual = t.number.eq(-1).validate(-2)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.eq(-1)', actual: '-2' }]
+      errors: [{ expected: 'eq(-1)', actual: '-2' }]
     })
   })
 })

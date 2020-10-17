@@ -13,7 +13,7 @@ describe('type.decimal.eq', () => {
     const actual = t.decimal.eq('-1.989').validate('-1.98')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.eq(-1.989)', actual: '"-1.98"' }]
+      errors: [{ expected: 'eq(-1.989)', actual: '"-1.98"' }]
     })
   })
 })
@@ -28,7 +28,7 @@ describe('type.decimal.eq2', () => {
     const actual = t.decimal.eq2('-1.989').validate('-1.999')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.eq2(-1.989)', actual: '"-1.999"' }]
+      errors: [{ expected: 'eq2(-1.989)', actual: '"-1.999"' }]
     })
   })
 })

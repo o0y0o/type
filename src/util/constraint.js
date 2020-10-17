@@ -4,8 +4,16 @@ import { jsonify } from '@lib/util/helper'
 function create(name, check, nilable = true, extensions = {}) {
   if (isObject(nilable)) return create(name, check, undefined, nilable)
 
-  const toString = () => name
-  const constraint = { name, check, nilable, validate, extend, toString }
+  const constraint = {
+    name,
+    display: name,
+    check,
+    nilable,
+    validate,
+    extend,
+    toString,
+    toJSON: toString
+  }
   const bulitinKeys = Object.keys(constraint)
   const mixins = {}
 
@@ -42,8 +50,8 @@ function create(name, check, nilable = true, extensions = {}) {
 
   function compose(ext) {
     if (isFunction(ext)) return (...args) => compose(ext(...args))
-    const extendedName = `${name}.${ext.name}`
-    const extended = create(extendedName, ext.check, ext.nilable, mixins)
+    const extended = create(ext.name, ext.check, ext.nilable, mixins)
+    extended.display = `${constraint}.${ext.name}`
     const delegatedValidate = extended.validate
     extended.validate = acutal => {
       const result = constraint.validate(acutal)
@@ -51,6 +59,10 @@ function create(name, check, nilable = true, extensions = {}) {
       return delegatedValidate(acutal)
     }
     return extended
+  }
+
+  function toString() {
+    return constraint.display
   }
 }
 

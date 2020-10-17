@@ -11,7 +11,7 @@ describe('type.time.required', () => {
     const actual = t.time.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'time.required', actual: 'undefined' }]
+      errors: [{ expected: 'required', actual: 'undefined' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.time.required', () => {
     const actual = t.time.required.validate(null)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'time.required', actual: 'null' }]
+      errors: [{ expected: 'required', actual: 'null' }]
     })
   })
 })

@@ -17,7 +17,7 @@ describe('type.time.gt', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.gt(2020-01-01T00:00:00.000Z)',
+          expected: 'gt(2020-01-01T00:00:00.000Z)',
           actual: '"2020-01-01T00:00:00.000Z"'
         }
       ]
@@ -32,7 +32,7 @@ describe('type.time.gt', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.gt(2020-01-01T00:00:00.000Z)',
+          expected: 'gt(2020-01-01T00:00:00.000Z)',
           actual: '"2020-01-01T00:00:00.000+08:00"'
         }
       ]

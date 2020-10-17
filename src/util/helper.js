@@ -3,7 +3,7 @@ import { isArray, isUndefined } from 'lodash'
 const jsonifyObj = (value, indent = 2) => {
   const replacer = (_, value) => (isUndefined(value) ? 'undefined' : value)
   const json = JSON.stringify(value, replacer, indent)
-  return json.replace(/"undefined"/g, 'undefined').replace(/\{2}/g, '\\')
+  return json.replace(/"undefined"/g, 'undefined')
 }
 
 const jsonifyArray = value => jsonifyObj(value, 0).replace(/,/g, ', ')

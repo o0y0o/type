@@ -11,7 +11,7 @@ describe('type.string.lenEq', () => {
     const actual = t.string.lenEq(2).validate('foo')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.lenEq(2)', actual: '"foo"' }]
+      errors: [{ expected: 'lenEq(2)', actual: '"foo"' }]
     })
   })
 })

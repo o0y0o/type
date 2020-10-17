@@ -3,12 +3,10 @@ import { validResult } from '../model'
 
 const expected = t.object.match({ num: 1, str: '1' }).required
 
-const expected1Msg = `object.match({
+const expected1Msg = `match({
   "num": 1,
   "str": "1"
 })`
-
-const expected2Msg = `${expected1Msg}.required`
 
 const actualGood = [
   { num: 1, str: '1', bool: true },
@@ -34,7 +32,7 @@ describe('type.array.of', () => {
       valid: false,
       errors: [
         { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
-        { name: '[1]', expected: expected2Msg, actual: 'null' }
+        { name: '[1]', expected: 'required', actual: 'null' }
       ]
     })
   })

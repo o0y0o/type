@@ -11,7 +11,7 @@ describe('type.string.empty', () => {
     const actual = t.string.empty.validate('foo')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.empty', actual: '"foo"' }]
+      errors: [{ expected: 'empty', actual: '"foo"' }]
     })
   })
 })

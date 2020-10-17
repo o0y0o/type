@@ -11,7 +11,7 @@ describe('type.number.required', () => {
     const actual = t.number.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.required', actual: 'undefined' }]
+      errors: [{ expected: 'required', actual: 'undefined' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.number.required', () => {
     const actual = t.number.required.validate(null)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'number.required', actual: 'null' }]
+      errors: [{ expected: 'required', actual: 'null' }]
     })
   })
 })

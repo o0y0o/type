@@ -11,7 +11,7 @@ describe('type.bool.falsy', () => {
     const actual = t.bool.falsy.validate(true)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'bool.falsy', actual: 'true' }]
+      errors: [{ expected: 'falsy', actual: 'true' }]
     })
   })
 })

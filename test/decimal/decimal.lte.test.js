@@ -18,7 +18,7 @@ describe('type.decimal.lte', () => {
     const actual = t.decimal.lte('-1.989').validate('-1.98')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.lte(-1.989)', actual: '"-1.98"' }]
+      errors: [{ expected: 'lte(-1.989)', actual: '"-1.98"' }]
     })
   })
 })
@@ -38,7 +38,7 @@ describe('type.decimal.lte2', () => {
     const actual = t.decimal.lte2('-1.989').validate('-1.979')
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'decimal.lte2(-1.989)', actual: '"-1.979"' }]
+      errors: [{ expected: 'lte2(-1.989)', actual: '"-1.979"' }]
     })
   })
 })

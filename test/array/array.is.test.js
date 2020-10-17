@@ -6,15 +6,10 @@ const expected = [
   t.object.match({ num: 2, str: '2' }).required
 ]
 
-const expected1Msg = `object.match({
+const expected1Msg = `match({
   "num": 1,
   "str": "1"
 })`
-
-const expected2Msg = `object.match({
-  "num": 2,
-  "str": "2"
-}).required`
 
 const actualGood1 = { num: 1, str: '1', bool: true }
 
@@ -39,7 +34,7 @@ describe('type.array.is', () => {
       valid: false,
       errors: [
         { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
-        { name: '[1]', expected: expected2Msg, actual: 'null' }
+        { name: '[1]', expected: 'required', actual: 'null' }
       ]
     })
   })
@@ -50,7 +45,7 @@ describe('type.array.is', () => {
       valid: false,
       errors: [
         { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
-        { name: '[1]', expected: expected2Msg, actual: 'undefined' }
+        { name: '[1]', expected: 'required', actual: 'undefined' }
       ]
     })
   })

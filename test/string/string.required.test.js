@@ -11,7 +11,7 @@ describe('type.string.required', () => {
     const actual = t.string.required.validate(undefined)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.required', actual: 'undefined' }]
+      errors: [{ expected: 'required', actual: 'undefined' }]
     })
   })
 
@@ -19,7 +19,7 @@ describe('type.string.required', () => {
     const actual = t.string.required.validate(null)
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'string.required', actual: 'null' }]
+      errors: [{ expected: 'required', actual: 'null' }]
     })
   })
 })

@@ -24,7 +24,7 @@ describe('type.time.gte', () => {
       valid: false,
       errors: [
         {
-          expected: 'time.gte(2020-01-01T00:00:00.000Z)',
+          expected: 'gte(2020-01-01T00:00:00.000Z)',
           actual: '"2020-01-01T00:00:00.000+08:00"'
         }
       ]
