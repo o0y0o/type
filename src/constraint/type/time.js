@@ -1,6 +1,5 @@
 import { isNaN, isNil, mapValues } from 'lodash'
 import constraint from '@lib/util/constraint'
-import { stringify } from '@lib/util/helper'
 
 const toTime = value => +new Date(value)
 
@@ -16,7 +15,7 @@ const comparisons = {
 }
 
 const timeCmp = mapValues(comparisons, (check, name) => expected =>
-  constraint(`${name}(${stringify(expected)})`, check(expected))
+  constraint(`${name}(${expected})`, check(expected))
 )
 
 export default constraint('time', isTime, timeCmp)

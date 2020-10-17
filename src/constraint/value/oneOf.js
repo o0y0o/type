@@ -1,7 +1,7 @@
 import constraint from '@lib/util/constraint'
-import { stringify } from '@lib/util/helper'
+import { jsonify } from '@lib/util/helper'
 
 export default expected =>
-  constraint(`oneOf(${stringify(expected)})`, actual =>
+  constraint(`oneOf(${jsonify(expected)})`, actual =>
     expected.includes(actual)
   )

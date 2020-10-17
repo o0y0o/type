@@ -1,5 +1,5 @@
 import { isArray, isBoolean, isFunction, isNil, isObject, negate } from 'lodash'
-import { stringify } from '@lib/util/helper'
+import { jsonify } from '@lib/util/helper'
 
 function create(name, check, nilable = true, extensions = {}) {
   if (isObject(nilable)) return create(name, check, undefined, nilable)
@@ -23,7 +23,7 @@ function create(name, check, nilable = true, extensions = {}) {
 
     const errors = isArray(checkResult)
       ? checkResult
-      : [{ expected: name, actual: stringify(actual) }]
+      : [{ expected: name, actual: jsonify(actual) }]
     return errors.length ? { valid: false, errors } : validResult
   }
 

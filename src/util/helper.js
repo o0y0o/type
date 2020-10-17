@@ -1,20 +1,22 @@
 import { isArray, isUndefined } from 'lodash'
 
-const stringifyObj = (value, indent = 2) => {
+const jsonifyObj = (value, indent = 2) => {
   const replacer = (_, value) => (isUndefined(value) ? 'undefined' : value)
   const json = JSON.stringify(value, replacer, indent)
-  return json.replace(/"undefined"/g, 'undefined')
+  return json.replace(/"undefined"/g, 'undefined').replace(/\{2}/g, '\\')
 }
 
-const stringifyArray = value => stringifyObj(value, 0).replace(/,/g, ', ')
+const jsonifyArray = value => jsonifyObj(value, 0).replace(/,/g, ', ')
 
-export const stringify = (value, indent) =>
-  isArray(value) ? stringifyArray(value) : stringifyObj(value, indent)
+const jsonify = (value, indent) =>
+  isArray(value) ? jsonifyArray(value) : jsonifyObj(value, indent)
 
 const joinPath = (path1, path2) =>
   [path1, path2].filter(Boolean).join('.').replace(/\.\[/g, '[')
 
-export const prefixErrorName = name => error => ({
+const joinErrorName = name => error => ({
   ...error,
   name: joinPath(name, error.name)
 })
+
+export { jsonify, joinErrorName }
