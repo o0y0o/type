@@ -6,12 +6,12 @@ const expected = [
   t.object.match({ num: 2, str: '2' }).required
 ]
 
-const expected1String = `object.match({
+const expected1Msg = `object.match({
   "num": 1,
   "str": "1"
 })`
 
-const expected2String = `object.match({
+const expected2Msg = `object.match({
   "num": 2,
   "str": "2"
 }).required`
@@ -22,7 +22,7 @@ const actualGood2 = { num: 2, str: '2', bool: true }
 
 const actualBad1 = { num: 1, str: 1 }
 
-const actualBadString1 = `{
+const actualBad1Msg = `{
   "num": 1,
   "str": 1
 }`
@@ -38,8 +38,8 @@ describe('type.array.is', () => {
     expect(actual).toEqual({
       valid: false,
       errors: [
-        { name: '[0]', expected: expected1String, actual: actualBadString1 },
-        { name: '[1]', expected: expected2String, actual: 'null' }
+        { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
+        { name: '[1]', expected: expected2Msg, actual: 'null' }
       ]
     })
   })
@@ -49,8 +49,8 @@ describe('type.array.is', () => {
     expect(actual).toEqual({
       valid: false,
       errors: [
-        { name: '[0]', expected: expected1String, actual: actualBadString1 },
-        { name: '[1]', expected: expected2String, actual: 'undefined' }
+        { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
+        { name: '[1]', expected: expected2Msg, actual: 'undefined' }
       ]
     })
   })
@@ -62,8 +62,8 @@ describe('type.array.is', () => {
     expect(actual).toEqual({
       valid: false,
       errors: [
-        { name: '[0]', expected: expected1String, actual: actualBadString1 },
-        { name: '[2]', expected: 'undeclared', actual: actualBadString1 }
+        { name: '[0]', expected: expected1Msg, actual: actualBad1Msg },
+        { name: '[2]', expected: 'undeclared', actual: actualBad1Msg }
       ]
     })
   })
