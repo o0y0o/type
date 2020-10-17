@@ -2,7 +2,7 @@ import t from '@lib'
 import { validResult } from '../model'
 
 const expected = {
-  numb: 1,
+  num: 1,
   str: '1',
   obj: { num: 1 },
   arr: [{ obj: { num: 1 } }]
@@ -43,7 +43,7 @@ const actualBadString = `{
   "obj": {
     "num": 1
   },
-  "array": [
+  "arr": [
     {
       "obj": {
         "num": 2
