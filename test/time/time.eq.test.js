@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.time.eq', () => {
   it('pass if time is equal to specific value', () => {

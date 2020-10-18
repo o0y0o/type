@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.string.lenEq', () => {
   it('pass if string has specific length', () => {

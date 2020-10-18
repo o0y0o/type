@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.number.lt', () => {
   it('pass if number is less than specific value', () => {

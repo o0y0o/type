@@ -11,8 +11,7 @@ function create(name, check, nilable = true, extensions = {}) {
     nilable,
     validate,
     extend,
-    toString,
-    toJSON: toString
+    toString
   }
   const bulitinKeys = Object.keys(constraint)
   const mixins = {}

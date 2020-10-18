@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 beforeAll(() => t.decimal.extendComparisonsWithDp(2))
 

@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.oneOf.required', () => {
   it('pass with any included value', () => {

@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 const expectedMsg = `valueOf({
   "a": 1,
@@ -27,14 +27,6 @@ describe('type.valueOf', () => {
     expect(actual).toEqual({
       valid: false,
       errors: [{ expected: expectedMsg, actual: '"1"' }]
-    })
-  })
-
-  it("fail if value's reference isn't one of specific values", () => {
-    const actual = t.oneOf([{}]).validate({})
-    expect(actual).toEqual({
-      valid: false,
-      errors: [{ expected: 'oneOf([{}])', actual: '{}' }]
     })
   })
 })

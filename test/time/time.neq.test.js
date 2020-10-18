@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.time.neq', () => {
   it("pass if time isn't equal to specific value", () => {

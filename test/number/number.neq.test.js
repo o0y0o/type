@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.number.neq', () => {
   it("pass if number isn't equal to specific value", () => {

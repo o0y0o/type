@@ -4,7 +4,7 @@ import constraint from '@lib/util/constraint'
 import { jsonify, joinErrorName } from '@lib/util/helper'
 
 const is = expected =>
-  constraint(`is(${expected})`, actual => {
+  constraint(`is(${jsonify(expected)})`, actual => {
     const errors = []
     for (let i = 0; i < expected.length; i++) {
       const result = expected[i].validate(actual[i])

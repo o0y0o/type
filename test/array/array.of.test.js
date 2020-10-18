@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 const expected = t.object.match({ num: 1, str: '1' }).required
 

@@ -1,4 +1,4 @@
-import { isNaN, isNil, mapValues } from 'lodash'
+import { isDate, isNaN, isNil, mapValues } from 'lodash'
 import constraint from '@lib/util/constraint'
 
 const toTime = value => +new Date(value)
@@ -14,8 +14,9 @@ const comparisons = {
   lte: expected => actual => toTime(actual) <= toTime(expected)
 }
 
-const timeCmp = mapValues(comparisons, (check, name) => expected =>
-  constraint(`${name}(${expected})`, check(expected))
-)
+const timeCmp = mapValues(comparisons, (check, name) => expected => {
+  const expectedStr = isDate(expected) ? expected.toISOString() : `${expected}`
+  return constraint(`${name}(${expectedStr})`, check(expected))
+})
 
 export default constraint('time', isTime, timeCmp)

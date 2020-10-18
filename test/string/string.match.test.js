@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.string.match', () => {
   it('pass if string matches specific regexp', () => {

@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.bool.truthy', () => {
   it('pass if bool is truthy', () => {

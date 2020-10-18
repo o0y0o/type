@@ -1,5 +1,5 @@
 import t from '@lib'
-import { validResult } from '../model'
+import { validResult } from '../helper'
 
 describe('type.oneOf', () => {
   it('pass with undefined value', () => {
@@ -29,7 +29,7 @@ describe('type.oneOf', () => {
     const actual = t.oneOf([{}]).validate({})
     expect(actual).toEqual({
       valid: false,
-      errors: [{ expected: 'oneOf([{}])', actual: '{}' }]
+      errors: [{ expected: 'oneOf([\n  {}\n])', actual: '{}' }]
     })
   })
 })
