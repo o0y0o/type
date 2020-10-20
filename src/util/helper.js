@@ -16,7 +16,7 @@ const constraintTagRegExp = new RegExp(constraintTagPattern, 'g')
 
 const isConstraint = value => isFunction(value?.validate)
 
-const jsonifyObjVal = (_, value) => {
+const jsonifyObjVal = value => {
   switch (true) {
     case isUndefined(value):
       return undefinedTag
@@ -26,14 +26,15 @@ const jsonifyObjVal = (_, value) => {
   return value
 }
 
+const formatConstraintJson = json => json.replace(/\\n/g, '\n  ')
+
 const jsonifyObj = (value, indent = 2) => {
-  const json = JSON.stringify(value, jsonifyObjVal, indent)
+  const json = JSON.stringify(value, (_, v) => jsonifyObjVal(v), indent)
   return json
     .replace(undefinedTagRegExp, 'undefined')
-    .replace(constraintTagRegExp, '$1')
+    .replace(constraintTagRegExp, (_, v) => formatConstraintJson(v))
     .replace(/\\{2}/g, '\\')
     .replace(/\\"/g, '"')
-    .replace(/\\n/g, '\n  ')
 }
 
 const isShortArray = value =>
