@@ -10,6 +10,8 @@ import eq from '@constraint/value/eq'
 import oneOf from '@constraint/value/oneOf'
 import valueOf from '@constraint/value/valueOf'
 
+export { default as createConstraint } from './util/constraint'
+
 export default {
   array,
   bool,
