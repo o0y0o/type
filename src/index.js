@@ -9,10 +9,10 @@ import time from '@lib/constraint/type/time'
 import eq from '@constraint/value/eq'
 import oneOf from '@constraint/value/oneOf'
 import valueOf from '@constraint/value/valueOf'
-
-export { default as createConstraint } from './util/constraint'
+import createConstraint from '@util/constraint'
 
 export default {
+  create: createConstraint,
   array,
   bool,
   decimal,

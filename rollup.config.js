@@ -38,8 +38,9 @@ export default [
     output: {
       file: path.join(__dirname, pkg.iife),
       format: 'iife',
-      name: 'Type',
-      plugins: [terser()]
+      name: 'type',
+      plugins: [terser()],
+      globals: { lodash: '_' }
     }
   }
 ]
