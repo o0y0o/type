@@ -7,6 +7,7 @@ import object from '@constraint/type/object'
 import string from '@constraint/type/string'
 import time from '@lib/constraint/type/time'
 import eq from '@constraint/value/eq'
+import neq from '@constraint/value/neq'
 import oneOf from '@constraint/value/oneOf'
 import valueOf from '@constraint/value/valueOf'
 import createConstraint from '@util/constraint'
@@ -22,6 +23,7 @@ export default {
   string,
   time,
   eq,
+  neq,
   oneOf,
   valueOf
 }

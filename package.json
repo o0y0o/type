@@ -1,6 +1,6 @@
 {
   "name": "@0y0/type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Type checking utils.",
   "src": "src/index.js",
   "main": "dist/index.cjs.js",
@@ -12,7 +12,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": [],
+  "keywords": [
+    "type",
+    "check",
+    "validation",
+    "test",
+    "assert",
+    "predicate",
+    "utility"
+  ],
   "scripts": {
     "format": "prettier --write '{*,{src,test}/**/*}.js'",
     "lint": "eslint '{*,{src,test}/**/*}.js'",
@@ -25,10 +33,10 @@
     "lodash": ">=4.17.0"
   },
   "devDependencies": {
-    "@0y0/eslint-config-vanilla": "^1.1.1",
+    "@0y0/eslint-config-vanilla": "^1.1.2",
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "@rollup/plugin-babel": "^5.2.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
