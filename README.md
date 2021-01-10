@@ -80,6 +80,8 @@ const result = objConstraint.validate({ num: 0, str: '1' })
 - `nil`
 - `eq(<any>)`
   - `eq(<any>).required`
+- `neq(<any>)`
+  - `neq(<any>).required`
 - `oneOf([<any>, ...])`
   - `oneOf([<any>, ...]).required`
 - `valueOf({ key: <any>, ... })`
