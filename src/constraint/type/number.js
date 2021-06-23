@@ -10,8 +10,10 @@ const comparisons = {
   lte: expected => actual => actual <= expected
 }
 
-const numCmp = mapValues(comparisons, (check, name) => expected =>
-  constraint(`${name}(${expected})`, check(expected))
+const numCmp = mapValues(
+  comparisons,
+  (check, name) => expected =>
+    constraint(`${name}(${expected})`, check(expected))
 )
 
 export default constraint('number', isNumber, numCmp)
