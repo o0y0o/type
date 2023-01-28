@@ -24,7 +24,7 @@
     "format": "prettier --write '{*,{src,test}/**/*}.js'",
     "lint": "eslint '{*,{src,test}/**/*}.js'",
     "test": "jest",
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "pkg": "[ $(yarn info $npm_package_name version) != $npm_package_version ] && yarn publish || echo Skip publishing due to v$npm_package_version exist"
   },
   "dependencies": {
