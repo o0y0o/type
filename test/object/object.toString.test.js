@@ -1,7 +1,7 @@
 import t from '@lib'
 
 const expectedObj = {
-  undefined: undefined,
+  undefined,
   null: null,
   num: 1,
   str: '1',
