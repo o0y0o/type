@@ -1,3 +1,4 @@
+import use from '@constraint/plugin/use'
 import array from '@constraint/type/array'
 import bool from '@constraint/type/bool'
 import decimal from '@constraint/type/decimal'
@@ -25,5 +26,6 @@ export default {
   eq,
   neq,
   oneOf,
+  use,
   valueOf
 }

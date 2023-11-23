@@ -17,12 +17,13 @@ const eq = expected =>
 const match = expected =>
   constraint(`match(${jsonify(expected)})`, actual => isMatch(actual, expected))
 
-const checkShape = (expected, strict) => actual => {
+const checkShape = (expected, strict) => (actual, context) => {
+  context = { ...context, parent: { value: actual, parent: context?.parent } }
   const errors = []
   const objKeys = keys(actual)
   for (const [expectedKey, expectedValue] of Object.entries(expected)) {
     pull(objKeys, expectedKey)
-    const result = expectedValue.validate(actual[expectedKey])
+    const result = expectedValue.validate(actual[expectedKey], context)
     if (result.valid) continue
     errors.push(...result.errors.map(joinErrorName(expectedKey)))
   }

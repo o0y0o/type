@@ -4,10 +4,10 @@ import constraint from '@lib/util/constraint'
 import { jsonify, joinErrorName } from '@lib/util/helper'
 
 const is = expected =>
-  constraint(`is(${jsonify(expected)})`, actual => {
+  constraint(`is(${jsonify(expected)})`, (actual, context) => {
     const errors = []
     for (let i = 0; i < expected.length; i++) {
-      const result = expected[i].validate(actual[i])
+      const result = expected[i].validate(actual[i], context)
       errors.push(...result.errors.map(joinErrorName(`[${i}]`)))
     }
     for (let i = expected.length; i < actual.length; i++) {
@@ -21,9 +21,9 @@ const is = expected =>
   })
 
 const of = expected =>
-  constraint(`of(${expected})`, actual =>
+  constraint(`of(${expected})`, (actual, context) =>
     actual.flatMap((actualItem, i) =>
-      expected.validate(actualItem).errors.map(joinErrorName(`[${i}]`))
+      expected.validate(actualItem, context).errors.map(joinErrorName(`[${i}]`))
     )
   )
 

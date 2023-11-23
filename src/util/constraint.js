@@ -13,18 +13,18 @@ function create(name, check, nilable = true, extensions = {}) {
     extend,
     toString
   }
-  const bulitinKeys = Object.keys(constraint)
+  const builtinKeys = Object.keys(constraint)
   const mixins = {}
 
   extend(extensions)
 
   return constraint
 
-  function validate(actual) {
+  function validate(actual, context) {
     const validResult = { valid: true, errors: [] }
     if (nilable && isNil(actual)) return validResult
 
-    const checkResult = check(actual)
+    const checkResult = check(actual, context)
     if (isBoolean(checkResult) && checkResult) return validResult
     if (!isNil(checkResult.valid)) return checkResult
 
@@ -39,7 +39,7 @@ function create(name, check, nilable = true, extensions = {}) {
       for (const args of Object.entries(key)) extend(...args)
       return constraint
     }
-    if (bulitinKeys.includes(key)) {
+    if (builtinKeys.includes(key)) {
       throw new Error(`Invalid extension key: ${key}`)
     }
     Object.defineProperty(constraint, key, { get: () => compose(ext) })
@@ -52,10 +52,10 @@ function create(name, check, nilable = true, extensions = {}) {
     const extended = create(ext.name, ext.check, ext.nilable, mixins)
     extended.display = `${constraint}.${ext.name}`
     const delegatedValidate = extended.validate
-    extended.validate = acutal => {
-      const result = constraint.validate(acutal)
+    extended.validate = (actual, context) => {
+      const result = constraint.validate(actual, context)
       if (!result.valid) return result
-      return delegatedValidate(acutal)
+      return delegatedValidate(actual, context)
     }
     return extended
   }
