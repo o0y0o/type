@@ -58,7 +58,7 @@ describe('type.object.is', () => {
     expect(actual).toEqual(validResult)
   })
 
-  it("pass if object doesn't fulfills specific constraint", () => {
+  it("fail if object doesn't fulfill specific constraint", () => {
     const actual = t.object.is(expected).validate(actualBad)
     expect(actual).toEqual({ valid: false, errors: actualBadErrors })
   })

@@ -86,6 +86,8 @@ const result = objConstraint.validate({ num: 0, str: '1' })
   - `oneOf([<any>, ...]).required`
 - `valueOf({ key: <any>, ... })`
   - `valueOf({ key: <any>, ... }).required`
+- `use`
+  - `use(({ parent, value }) => constraint).required`
 
 ## License
 
